@@ -35,4 +35,4 @@ jobs:
     steps:
      - uses: actions/checkout@v2
      - name: Check coding conventions
-       uses: github/super-linter@v4.8.3
+       uses: xt0rted/dotnet-format@v1.2.0
