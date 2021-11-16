@@ -30,15 +30,17 @@ jobs:
       - name: Try to build my code
         run: dotnet build
         
-  checkstyle:
+  dotnet-format:
     runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v2
-     
-     - name: Install dotnet SDK
-       uses: actions/setup-dotnet@v1
-       with: 
-         dotnet-version: '5.0.x'
-         
-     - name: Check coding conventions
-       uses: xt0rted/dotnet-format@v1.2.0
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Add dotnet-format problem matcher
+        uses: xt0rted/dotnet-format-problem-matcher@v1
+
+      - name: Restore dotnet tools
+        uses: xt0rted/dotnet-tool-restore@v1
+
+      - name: Run dotnet format
+        uses: xt0rted/dotnet-format@v1
