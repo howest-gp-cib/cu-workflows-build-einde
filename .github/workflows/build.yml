@@ -30,17 +30,11 @@ jobs:
       - name: Try to build my code
         run: dotnet build
         
-  dotnet-format:
+  checkstyle:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Add dotnet-format problem matcher
-        uses: xt0rted/dotnet-format-problem-matcher@v1
-
-      - name: Restore dotnet tools
-        uses: xt0rted/dotnet-tool-restore@v1
-
-      - name: Run dotnet format
-        uses: xt0rted/dotnet-format@v1
+      - name: Super-Linter
+        uses: ithub/super-linter@v4.8.3
