@@ -33,6 +33,8 @@ jobs:
   checkstyle:
     runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v2
-     - name: Check coding conventions
-       uses: xt0rted/dotnet-format@v1.2.0
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Super-Linter
+        uses: ithub/super-linter@v4.8.3
