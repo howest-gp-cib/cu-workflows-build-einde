@@ -33,5 +33,6 @@ jobs:
   checkstyle:
     runs-on: ubuntu-latest
     steps:
-     - name: Super-Linter
+     - uses: actions/checkout@v2
+     - name: Check coding conventions
        uses: github/super-linter@v4.8.3
