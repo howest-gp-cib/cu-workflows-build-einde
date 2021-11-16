@@ -34,5 +34,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - uses: actions/checkout@v2
+       with:
+          # Full git history is needed to get a proper list of changed files within `super-linter`
+          fetch-depth: 0
+          
      - name: Check coding conventions
        uses: github/super-linter@v4.8.3
+       env:
+         VALIDATE_ALL_CODEBASE: false
+         DEFAULT_BRANCH: dev
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
